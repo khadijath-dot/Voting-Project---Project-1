@@ -1,7 +1,9 @@
-#import logic_files.voting_logic
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), 'logic'))
+from voting_logic import VotingLogic
 from PyQt6.QtWidgets import QApplication, QMainWindow
 from ui.ui_voting_gui import Ui_MainWindow
-from logic.voting_logic import VotingLogic
 
 class Controller(QMainWindow, Ui_MainWindow):
     
@@ -9,7 +11,6 @@ class Controller(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.logic = VotingLogic()
-
         self.submit_button.clicked.connect(self.process_vote)
 
     def process_vote(self):
