@@ -1,7 +1,7 @@
 #import logic_files.voting_logic
 from PyQt6.QtWidgets import QApplication, QMainWindow
-from ui_files.ui_voting_gui import Ui_MainWindow
-from voting_logic import VotingLogic
+from ui.ui_voting_gui import Ui_MainWindow
+from logic.voting_logic import VotingLogic
 
 class Controller(QMainWindow, Ui_MainWindow):
     
