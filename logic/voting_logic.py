@@ -1,6 +1,6 @@
 class VotingLogic:
     def __init__(self):
-        self.votes = {'John': 0, 'Jane': 0, 'Other': 0}
+        self.votes = {'John': 0, 'Jane': 0, 'Jiselle': 0}
         self.voted_ids = set()
 
     def cast_vote(self, candidate_name, voter_id):
