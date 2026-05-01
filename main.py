@@ -1,15 +1,15 @@
 import sys
-#import os
-#sys.path.append(os.path.join(os.path.dirname(__file__), 'logic'))
 from logic.voting_logic import Logic
 from PyQt6.QtWidgets import QApplication
-#from ui.ui_voting_gui import Ui_MainWindow
-#from PyQt6.QtWidgets import QApplication, QMainWindow, QMessageBox
 
-def main():
+def main() -> None:
     app = QApplication(sys.argv)
+
+    # Initialize logic class
     window = Logic()
     window.show()
+
+    # Start the event loop
     sys.exit(app.exec())
 
 if __name__ == '__main__':

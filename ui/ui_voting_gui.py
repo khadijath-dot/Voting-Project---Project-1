@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'final_voting_gui.ui'
+# Form implementation generated from reading ui file 'ui/final_voting_gui.ui'
 #
 # Created by: PyQt6 UI code generator 6.11.0
 #
@@ -32,9 +32,9 @@ class Ui_MainWindow(object):
         self.voter_id_input = QtWidgets.QLineEdit(parent=self.centralwidget)
         self.voter_id_input.setGeometry(QtCore.QRect(70, 200, 113, 21))
         self.voter_id_input.setObjectName("voter_id_input")
-        self.label = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(10, 200, 51, 16))
-        self.label.setObjectName("label")
+        self.voter_id_label = QtWidgets.QLabel(parent=self.centralwidget)
+        self.voter_id_label.setGeometry(QtCore.QRect(10, 200, 51, 16))
+        self.voter_id_label.setObjectName("voter_id_label")
         self.jane_radio = QtWidgets.QRadioButton(parent=self.centralwidget)
         self.jane_radio.setGeometry(QtCore.QRect(320, 200, 89, 20))
         self.jane_radio.setObjectName("jane_radio")
@@ -76,7 +76,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Voting System"))
         self.title_label.setText(_translate("MainWindow", "WELCOME TO THE VOTING SYSTEM"))
         self.instruction_label.setText(_translate("MainWindow", "Please enter your voter ID and select a candidate."))
-        self.label.setText(_translate("MainWindow", "Voter ID:"))
+        self.voter_id_label.setText(_translate("MainWindow", "Voter ID:"))
         self.jane_radio.setText(_translate("MainWindow", "Jane"))
         self.john_radio.setText(_translate("MainWindow", "John"))
         self.jiselle_radio.setText(_translate("MainWindow", "Jiselle"))
