@@ -1,4 +1,5 @@
 import csv
+# Importing logic and UI
 from PyQt6.QtWidgets import QMainWindow, QMessageBox
 from ui.ui_voting_gui import Ui_MainWindow
 
@@ -63,7 +64,8 @@ class Logic (QMainWindow, Ui_MainWindow):
         Gathers input, validates, updates the model, and saves data
         '''
         try:
-            # Clean ID input by converting the input value to text and removing trailing spaces
+            # Clean ID input by converting the input value to text 
+            # and removing trailing spaces
             voter_id = self.voter_id_input.text().strip()
             
             # Validate input to make sure input is 5 digits
@@ -81,7 +83,6 @@ class Logic (QMainWindow, Ui_MainWindow):
             if candidate is None:
                 QMessageBox.warning(self, "Selection Required", "Please select a candidate.")
                 return
-            #print(f"DEBUG: Candidate being sent to logic is: '{candidate}'")
 
             # Record the vote
             if self.cast_vote(candidate, voter_id):
@@ -97,6 +98,8 @@ class Logic (QMainWindow, Ui_MainWindow):
             # Prevents app from crashing on sudden errors
             print(f"Error caught: {e}")
             QMessageBox.critical(self, "Crash Prevented", f"Error: {str(e)}")
+        # Exception handling from Google Gemini to make sure the application 
+        # remains stable during unexpected runtime errors 
             
 
     def clear_fields(self) -> None:
@@ -138,9 +141,18 @@ class Logic (QMainWindow, Ui_MainWindow):
         """
         with open('results.csv', 'w', newline = '') as f:
             writer = csv.writer(f)
-            writer.writerow(['Candidate', 'Votes'])
-            for name, count in self.votes.items():
-                writer.writerow([name, count])
+            writer.writerow(['Candidate' ' | ' 'Votes'])
+
+            # Sort by vote count in descending order before .csv file is saved
+            sorted_votes = sorted(self.votes.items(), key = lambda x: x[1], reverse = True)
+            
+            # Put only the sorted results into the file
+            for name, count in sorted_votes:
+                writer.writerow([name,  f' {count}'])
+        # The 'save_notes' method was written with the help of Google Gemini to enter the vote tallies
+        # into a .csv file and organize vote counts for each candidate from highest to lowest for 
+        # better readability
+
 
     
     
